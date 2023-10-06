@@ -1,0 +1,2 @@
+
+export { IconScript } from './IconScript'

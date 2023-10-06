@@ -1,0 +1,2 @@
+
+export { BoardStrips } from './BoardStrips'

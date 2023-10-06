@@ -1,0 +1,2 @@
+
+export { ManagerListFooter } from './ManagerListFooter'

@@ -1,0 +1,2 @@
+
+export { InputContactWithRemove } from './InputContactWithRemove'

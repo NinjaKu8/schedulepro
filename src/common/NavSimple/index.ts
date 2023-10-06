@@ -1,0 +1,2 @@
+
+export { NavSimple } from './NavSimple'

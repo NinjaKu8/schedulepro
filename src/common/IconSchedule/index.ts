@@ -1,0 +1,2 @@
+
+export { IconSchedule } from './IconSchedule'

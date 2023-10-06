@@ -1,0 +1,2 @@
+
+export { ProgressReportCircleDurationProgressHeader } from './ProgressReportCircleDurationProgressHeader'

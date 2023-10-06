@@ -1,0 +1,2 @@
+
+export { CardSmallInfo } from './CardSmallInfo'

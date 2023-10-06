@@ -1,0 +1,2 @@
+
+export { ProgressReportStripDuration } from './ProgressReportStripDuration'

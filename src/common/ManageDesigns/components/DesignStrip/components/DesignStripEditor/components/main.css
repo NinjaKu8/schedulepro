@@ -1,0 +1,22 @@
+.root {
+  position: relative;
+  height: 100%;
+}
+
+.target {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 150px;
+  left: 100px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #eee;
+  --color: #4af;
+  color: #242424;
+  font-weight: bold;
+  border: 1px solid #4b4b4b;
+  box-sizing: border-box;
+}

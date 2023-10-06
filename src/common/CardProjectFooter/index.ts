@@ -1,0 +1,2 @@
+
+export { CardProjectFooter } from './CardProjectFooter'

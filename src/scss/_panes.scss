@@ -1,0 +1,46 @@
+
+/* Adjustable panes */
+.panes {  
+
+  /* Fix for mobile, but don't need it under md size as Schedule reverts to PaneTabs */
+  @media (pointer:none), (pointer:coarse) {
+    @include media-breakpoint-up(md) {
+      max-height: calc(100% - 7.6em);
+    }
+  }
+
+  /* Alter the react-reflex core css to fit theme */
+  .reflex-container > .reflex-splitter {
+    height: .5em;
+    min-height: .5em;
+  }
+  .reflex-container > .reflex-splitter,
+  .reflex-container > .reflex-splitter.active,
+  .reflex-container > .reflex-splitter:hover {
+    background-color: transparent;
+  }
+  .horizontal > .reflex-splitter,
+  .reflex-container.horizontal > .reflex-splitter:hover,
+  .reflex-container.horizontal > .reflex-splitter.active {
+    border-bottom: none;
+    border-top: none;
+  }
+  .reflex-container.vertical > .reflex-splitter {
+    width: .5em;
+    height: 100%;
+  }
+  .reflex-container.vertical > .reflex-splitter,
+  .reflex-container.vertical > .reflex-splitter:hover,
+  .reflex-container.vertical > .reflex-splitter.active {
+    border-right: none;
+    border-left: none; 
+  }
+  .reflex-container.horizontal > .reflex-splitter.reflex-thin {
+    height: 1.5em !important;
+    margin: -.5em 0;
+  }
+  .reflex-container.vertical > .reflex-splitter.reflex-thin {
+    width: 1.5em !important;
+    margin: 0 -.5em;
+  }
+}

@@ -1,0 +1,2 @@
+
+export { GradientAccent } from './GradientAccent'

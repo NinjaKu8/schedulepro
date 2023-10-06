@@ -1,0 +1,11 @@
+
+export { ProfileInfoImage } from './ProfileInfoImage'
+export { ProfileUpdateImage } from './ProfileUpdateImage'
+export { ProfileInfoFirstname } from './ProfileInfoFirstname'
+export { ProfileInfoMiddlename } from './ProfileInfoMiddlename'
+export { ProfileInfoLastname } from './ProfileInfoLastname'
+export { ProfileInfoPosition } from './ProfileInfoPosition'
+export { ProfileInfoAbout } from './ProfileInfoAbout'
+export { ProfileInfoEmail } from './ProfileInfoEmail'
+export { ProfileInfoPhone } from './ProfileInfoPhone'
+export { ProfileInfoButtonViewPage } from './ProfileInfoButtonViewPage'

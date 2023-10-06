@@ -1,0 +1,2 @@
+
+export { CardScriptTitle } from './CardScriptTitle'

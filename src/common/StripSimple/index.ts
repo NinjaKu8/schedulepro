@@ -1,0 +1,2 @@
+
+export { StripSimple } from './StripSimple'

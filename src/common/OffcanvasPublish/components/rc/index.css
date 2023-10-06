@@ -1,0 +1,38 @@
+.red {
+  color: #6d0707;
+}
+
+.green {
+  color: #0c550c;
+}
+
+.pink {
+  color: #964452;
+}
+
+/* p {
+  page-break-after: avoid;
+  page-break-before: always;
+}
+
+p:first-child {
+  page-break-before: avoid;
+} */
+
+button {
+  margin: 10px;
+}
+
+.printHide {
+  display: none;
+}
+@media print {
+  p {
+    break-after: always;
+    break-before: always;
+  }
+
+  p:first-child {
+    break-before: always;
+  }
+}

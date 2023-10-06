@@ -1,0 +1,2 @@
+
+export { ManagePanesName } from './ManagePanesName'

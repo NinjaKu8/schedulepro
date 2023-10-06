@@ -1,0 +1,2 @@
+
+export { ManageDesignsPalettesList } from './ManageDesignsPalettesList'

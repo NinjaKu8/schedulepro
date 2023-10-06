@@ -1,0 +1,2 @@
+
+export { CardScriptHorizontal } from './CardScriptHorizontal'

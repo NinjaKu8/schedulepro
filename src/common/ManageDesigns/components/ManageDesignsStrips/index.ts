@@ -1,0 +1,2 @@
+
+export { ManageDesignsStrips } from './ManageDesignsStrips'

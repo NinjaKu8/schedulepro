@@ -1,0 +1,2 @@
+
+export { OffcanvasTCFooter } from './OffcanvasTCFooter'

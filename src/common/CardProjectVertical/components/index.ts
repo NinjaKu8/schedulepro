@@ -1,0 +1,2 @@
+
+export { CardProjectVerticalInfo } from './CardProjectVerticalInfo'

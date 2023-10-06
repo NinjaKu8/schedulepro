@@ -1,0 +1,2 @@
+
+export { FormLabelWithBreakpoint } from './FormLabelWithBreakpoint'

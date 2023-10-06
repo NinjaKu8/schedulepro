@@ -1,0 +1,2 @@
+
+export { CardProjectFavorite } from './CardProjectFavorite'

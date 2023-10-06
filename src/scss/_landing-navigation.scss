@@ -1,0 +1,29 @@
+
+.landing-navbar {
+  @include media-breakpoint-up(sm) {
+    .nav-link {
+      padding: 0;
+      padding-top: .1em;
+      position: relative;
+      line-height: 2em;
+      margin-top: .5em;
+    }
+    .nav-link.active {
+      background-color: transparent;
+    }
+    .nav-link.active::before {
+      position: absolute;
+      left: 50%;
+      bottom: -.4em;
+      background: #FFF;
+      height: .6em;
+      width: .6em;
+      transform: translateX(-50%);
+      border-radius: 100%;
+      content: '';
+    }
+    &__language {
+      padding-top: .5em;
+    }
+  }
+}

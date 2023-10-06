@@ -1,0 +1,2 @@
+
+export { CardVerticalBody } from './CardVerticalBody'

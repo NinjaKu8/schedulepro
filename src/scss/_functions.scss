@@ -1,0 +1,7 @@
+
+@function adjust-lightness($rgb, $amt) {
+  $h: hue($rgb);
+  $s: saturation($rgb);
+  $l: lightness($rgb);
+  @return hsl($h, $s, calc($l + (100% - $l) * (1 - $amt)));
+}

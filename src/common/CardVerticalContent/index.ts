@@ -1,0 +1,2 @@
+
+export { CardVerticalContent } from './CardVerticalContent'

@@ -1,0 +1,2 @@
+
+export { parsePDF } from './parsePDF'

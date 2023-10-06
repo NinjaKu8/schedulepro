@@ -1,0 +1,319 @@
+
+$script-margin: 6.7em;
+$script-page-width: 37em;
+$script-element-color: $info-50;
+
+.script-scene-menu {
+  padding: .5em .75em !important;
+  width: 100%;
+  z-index: 2;
+}
+
+.script-scenes-page-scene-number {
+  transition: border-color .15s ease-in-out;
+
+  p {
+    border: 1px solid transparent;
+    border-radius: .4em;
+    &:hover {
+      border: 1px solid $primary;
+    }
+  }
+
+  
+  // &:hover {
+  //   border: 1px solid $primary;
+  //   border-radius: .2em;
+  // }
+}
+
+.script-scene-container { /* required for container query */
+
+  .script-scene {
+    font-family: Courier, monospace;
+    font-size: 1.1em;
+    line-height: 1.1;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 1em 0;
+
+    @media (max-width: 768px) {
+      padding-left: 0.5em !important;
+    }
+
+    .ProseMirror {
+      margin: -1.1em 0; // adjust for a weird ProseMirror margins
+      outline: none;
+    }
+
+    p { margin-bottom: 1em; } // Bootstrap adds rem margin to paragraphs, use em instead
+
+    hr {
+      margin-left: -$script-margin;
+      margin-top: 3em;
+      margin-bottom: 3em;
+      border: 3px solid #ebebeb;
+    }
+
+    .heading {
+      display: block;
+      padding-top: 1em;
+      min-width: 100%;
+      max-width: $script-page-width;
+      text-transform: uppercase;
+      z-index: 1;
+    }
+
+    .action {
+      display: block;
+      margin-top: 1em;
+      margin-bottom: 0;
+      min-width: 100%;
+      max-width: $script-page-width;
+      
+      @media (max-width: 768px) {
+        padding-right: 0.5em;
+      }
+    }
+    
+    .character {
+      display: block;
+      margin-top: 1em;
+      margin-bottom: 0;
+      text-transform: uppercase;
+    }
+    
+    .parenthetical {
+      display: block;
+      margin-bottom: 0;
+
+      &:before { content: "("; }
+      &:after { content: ")"; }
+    }
+      
+    .dialogue {
+      display: block;
+      margin-left: 7em;
+      margin-bottom: 0;
+    }
+      
+    .shot {
+      display: block;
+      margin-top: 1em;
+      min-width: 100%;
+      max-width: $script-page-width;
+      text-transform: uppercase;
+    }
+      
+    .general {
+      display: block;
+      min-width: 100%;
+      max-width: $script-page-width;
+      margin-bottom: 0;
+    }
+      
+    .transition {
+      display: block;
+      margin-top: 1em;
+      max-width: 15em;
+      text-transform: uppercase;
+    }
+
+    .element {
+      position: relative;
+      display: inline-block;
+      white-space: pre-wrap;
+      background-color: $script-element-color;
+      box-shadow: -.2em 0 0 $script-element-color, .2em 0 0 $script-element-color;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .revision {
+      white-space: pre-wrap;
+      color: rgb(0, 0, 201);
+      // &::after {
+      //   position: absolute;
+      //   top: 0;
+      //   right: 1.5em;
+      //   content: '*';
+      //   color: black;
+      //   font-size: 1.2em;
+      // }
+      .revision-icon {
+        position: absolute;
+        display: inline-block;
+        right: 1em;
+        color: black;
+        // font-size: 1.2em;
+        // line-height: .9em;
+        @media (max-width: 768px) {
+          right: 0.5em;
+        }
+      }
+    }
+
+    .dual-dialogue {
+      display: flex;
+      margin-bottom: -1em;
+      
+      .dual-dialogue-left, .dual-dialogue-right {
+        max-width: calc(#{$script-page-width} / 2);
+      }
+      .dual-dialogue-right {
+        padding-left: 2em;
+      }
+
+      .character {
+        margin-left: 7em;
+      }
+      .parenthetical {
+        margin-left: 3em;
+      }
+      .dialogue {
+        margin-left: 0;
+        margin-bottom: 0;
+        max-width: 18em;
+      }
+      br {
+        line-height: 0;
+      }
+    }
+
+    .scene-number {
+      .form-control { border-radius: .3em; }
+      &_left, &_right {
+        &_input { width: 4em; }
+        &_text { width: 5em; }
+      }
+      &_left {
+        &_text { text-align: right; }
+      }
+      &_right {
+        &_input { margin-right: 1em; }
+      }
+    }
+    .scene-number:has(.scene-number_left) { left: 0; }
+    .scene-number:has(.scene-number_right) { right: 0; }
+  }
+
+  /* Responsive layout using container query (or media query as a fallback) */
+  @supports (contain: inline-size) {
+    container: script-scene-container / inline-size;
+
+    .script-scene { // xs
+      padding-left: 1em;
+      padding-right: 1em;
+      .character { margin-left: 33%; }
+      .parenthetical { margin-left: 22%; }
+      .dialogue { margin-left: 15%; max-width: 80%; }
+      .transition { margin-left: 60%; }
+      .scene-number { 
+        position: relative; 
+        margin-top: 1em;
+        &_left {
+          .form-control { text-align: left; }
+          &_input { margin-left: 0; }
+          &_text { text-align: left; }
+        }
+      }
+      .scene-number:has(.scene-number_right) { display: none; }
+      // .revision::after { display: none; }
+    }
+
+    .script-scene_thumbnail {
+      font-size: 1.8cqw; // use container query width (cqw) units for font-size, so that font-size is responsive
+      padding-left: $script-margin;
+      padding-right: $script-margin;
+      .character { margin-left: 13em; }
+      .parenthetical { margin-left: 10em; }
+      .dialogue { margin-left: 7em; max-width: 21.5em; }
+      .transition { margin-left: 27em; }
+    }
+
+    @container script-scene-container (min-width: 576px) { // sm
+      .script-scene {
+        .character { margin-left: 13em; }
+        .parenthetical { margin-left: 10em; }
+        .dialogue { margin-left: 7em; max-width: 21.5em; }
+        .transition { margin-left: 27em; }
+      }
+    }
+    @container script-scene-container (min-width: 620px) { // fits nicely in script-scene-container max width
+      .script-scene {
+        padding-left: $script-margin;
+        padding-right: $script-margin;
+
+        .scene-number { 
+          position: absolute; 
+          top: 1em;
+          margin-top: 0;
+          &_left, &_right {
+            &_input { margin-top: -.3em; } /* adjust for internal padding in input so that text position matches &_text */
+          }
+          &_left {
+            .form-control { text-align: right; }
+            &_input { margin-left: 1em; }
+            &_text {
+              text-align: right;
+              margin-left: 0;
+            }
+          }
+          &_right {
+            &_text {
+              text-align: left;
+              margin-right: 0;
+            }
+          }
+        }
+        .scene-number:has(.scene-number_right) { display: block; }
+        // .revision::after { display: inline-block; }
+      }
+    }
+  }
+  @supports not (contain: inline-size) { // fallback for older browsers
+    .script-scene { // xs
+      padding-left: 1em;
+      padding-right: 1em;
+      .character { margin-left: 33%; }
+      .parenthetical { margin-left: 22%; }
+      .dialogue { margin-left: 15%; max-width: 80%; }
+      .transition { margin-left: 60%; }
+      .scene-number { 
+        position: absolute; 
+        @include media-breakpoint-down(md) { 
+          position: relative; 
+        }
+        &_left {
+          &_text {
+            @include media-breakpoint-down(md) { // show 'left' again when md and smaller
+              text-align: left;
+              margin-left: 0;
+            }
+          }
+        }
+      }
+      .scene-number:has(.scene-number_left) {
+        @include media-breakpoint-down(md) { // adjust padding when 'left' is on its own line
+          padding: .5em 0 0 0;
+        }
+      }
+      .scene-number:has(.scene-number_right) {
+        @include media-breakpoint-down(md) { // dont show 'right' when md or smaller
+          display: none;
+        }
+      }
+
+      @include media-breakpoint-up(sm) { // sm
+        .character { margin-left: 13em; }
+        .parenthetical { margin-left: 10em; }
+        .dialogue { margin-left: 7em; max-width: 21.5em; }
+        .transition { margin-left: 27em; }
+      }
+      @include media-breakpoint-up(md) { // md
+        padding-left: $script-margin;
+        padding-right: $script-margin;
+      }
+    }
+  }
+}

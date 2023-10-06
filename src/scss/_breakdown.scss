@@ -1,0 +1,131 @@
+
+/* Breakdown */
+.breakdown {
+  #breakdown-field-comments { grid-area: comments; }
+  #breakdown-field-description { grid-area: description; }
+  #breakdown-field-dn { grid-area: dn; }
+  #breakdown-field-duration { grid-area: duration; }
+  #breakdown-field-eighths { grid-area: eighths; }
+  #breakdown-field-ie { grid-area: ie; }
+  #breakdown-field-location { grid-area: location; }
+  #breakdown-field-pages { grid-area: pages; }
+  #breakdown-field-scene { grid-area: scene; }
+  #breakdown-field-script-day { grid-area: script-day; }
+  #breakdown-field-script-page { grid-area: script-page; }
+  #breakdown-field-script-scene { grid-area: script-scene; }
+  #breakdown-field-set { grid-area: set; }
+  #breakdown-field-unit { grid-area: unit; }
+
+  .breakdown-fields {
+    display: grid;
+    column-gap: .5em;
+    row-gap: .5em;
+    grid-template-rows: auto;
+  }
+
+  @supports (contain: inline-size) {
+    container: breakdown / inline-size;
+    .breakdown-fields { // under 300px width
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        "scene scene"
+        "eighths pages"
+        "ie ie"
+        "dn dn"
+        "set set"
+        "description description"
+        "script-page script-page"
+        "script-day script-day"
+        "duration duration"
+        "unit unit"
+        "location location"
+        "comments comments"
+        "script-scene script-scene";
+    }
+    @container breakdown (min-width: 300px) {
+      .breakdown-fields {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+          "scene scene pages eighths"
+          "ie ie dn dn"
+          "ie ie dn dn"
+          "set set set set"
+          "description description description description"
+          "script-page script-page script-day script-day"
+          "duration duration duration duration"
+          "unit unit location location"
+          "comments comments comments comments"
+          "script-scene script-scene script-scene script-scene";
+      }
+    }
+    @container breakdown (min-width: 475px) {
+      .breakdown-fields {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-areas: 
+          "scene scene ie ie dn dn pages eighths"
+          "set set set set set set set set"
+          "description description description description description description description description"
+          "script-page script-page script-page script-day script-day script-day duration duration"
+          "unit unit unit unit location location location location"
+          "comments comments comments comments comments comments script-scene script-scene";
+      }
+    }
+    @container breakdown (min-width: 550px) {
+      .breakdown-fields {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-areas: 
+          "scene scene ie ie dn dn pages eighths"
+          "set set set set set set duration duration"
+          "description description description description description description description description"
+          "script-page script-page script-day script-day unit unit location location"
+          "comments comments comments comments comments comments script-scene script-scene";
+      }
+    }
+  }
+  @supports not (contain: inline-size) { // fallback for older browsers
+    .breakdown-fields { // under 300px width
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        "scene scene"
+        "pages eighths"
+        "ie ie"
+        "dn dn"
+        "set set"
+        "description description"
+        "script-page script-page"
+        "script-day script-day"
+        "duration duration"
+        "unit unit"
+        "location location"
+        "comments comments"
+        "script-scene script-scene";
+    }
+    @include media-breakpoint-up(sm) {
+      .breakdown-fields {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+          "scene scene pages eighths"
+          "ie ie dn dn"
+          "ie ie dn dn"
+          "set set set set"
+          "description description description description"
+          "script-page script-page script-day script-day"
+          "duration duration duration duration"
+          "unit unit location location"
+          "comments comments comments comments"
+          "script-scene script-scene script-scene script-scene";
+      }
+    }
+    @include media-breakpoint-up(md) {
+      .breakdown-fields {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-areas: 
+          "scene scene ie ie dn dn pages eighths"
+          "set set set set set set duration duration"
+          "description description description description description description description description"
+          "script-page script-page script-day script-day unit unit location location"
+          "comments comments comments comments comments comments script-scene script-scene";
+      }
+    }
+  }
+}

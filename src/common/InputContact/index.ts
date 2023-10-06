@@ -1,0 +1,2 @@
+
+export { InputContact } from './InputContact'

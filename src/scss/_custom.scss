@@ -1,0 +1,256 @@
+
+html, body, #root {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+  overscroll-behavior-x: none; /* stops chrome swipe to go back behavior */
+  font-family: Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: .95rem;
+  line-height: 1.4;
+  color: $dark;
+}
+
+html {
+  height: -webkit-fill-available;
+  overflow: hidden; /* stops chrome rubber-band */
+}
+
+body {
+  height: 100%; /* stops chrome rubber-band */
+  overflow: auto; /* stops chrome rubber-band */
+  min-height: 100vh;
+  position: fixed; /* mobile viewport bug fix */
+  min-height: -webkit-fill-available; /* mobile viewport bug fix */
+}
+
+/* Safari hack */
+@supports (-webkit-touch-callout: none) {
+  body {
+    height: -webkit-fill-available; /* mobile viewport bug fix */
+  }
+}
+
+a {
+  color: $dark;
+}
+
+/* Avenir font line-hight issue */
+.btn, .nav-item a { line-height: 1; }
+.btn { padding: .6em .5em .5em .5em; }
+.nav-item a { padding: .9em 0em .8em 0em; }
+.dropdown-menu a { padding: .8em 1em }
+
+.card {
+  border-color: transparent;
+  border-width: 0;
+  & .card-footer {
+    border: none;
+  }
+}
+
+.badge {
+  font-size: .85em;
+  padding: .6em .8em;
+  &.bg-primary {
+    color: $primary;
+    background-color: transparent !important;
+    border: 1px solid $primary !important;
+  }
+  &.bg-secondary {
+    color: $secondary;
+    background-color: transparent !important;
+    border: 1px solid $secondary !important;
+  }
+  &.bg-success {
+    color: $success;
+    background-color: transparent !important;
+    border: 1px solid $success !important;
+  }
+  &.bg-info {
+    color: $info;
+    background-color: transparent !important;
+    border: 1px solid $info !important;
+  }
+  &.bg-warning {
+    color: $warning;
+    background-color: transparent !important;
+    border: 1px solid $warning !important;
+  }
+  &.bg-danger {
+    color: $danger;
+    background-color: transparent !important;
+    border: 1px solid $danger !important;
+  }
+  &.bg-light {
+    color: $light;
+    background-color: transparent !important;
+    border: 1px solid $light !important;
+  }
+  &.bg-dark {
+    color: $dark;
+    background-color: transparent !important;
+    border: 1px solid $dark !important;
+  }
+  &.badge-count {
+    color: $white;
+    background-color: $danger !important;
+    border: none !important;
+    padding: .25em .4em;
+  }
+}
+
+/* Extend background colors */
+.bg-primary-75 { background-color: $primary-75 !important; }
+.bg-primary-50 { background-color: $primary-50 !important; }
+.bg-primary-25 { background-color: $primary-25 !important; }
+.bg-primary-10 { background-color: $primary-10 !important; }
+.bg-secondary-75 { background-color: $secondary-75 !important; }
+.bg-secondary-50 { background-color: $secondary-50 !important; }
+.bg-secondary-25 { background-color: $secondary-25 !important; }
+.bg-secondary-10 { background-color: $secondary-10 !important; }
+.bg-success-75 { background-color: $success-75 !important; }
+.bg-success-50 { background-color: $success-50 !important; }
+.bg-success-25 { background-color: $success-25 !important; }
+.bg-success-10 { background-color: $success-10 !important; }
+.bg-info-75 { background-color: $info-75 !important; }
+.bg-info-50 { background-color: $info-50 !important; }
+.bg-info-25 { background-color: $info-25 !important; }
+.bg-info-10 { background-color: $info-10 !important; }
+.bg-warning-75 { background-color: $warning-75 !important; }
+.bg-warning-50 { background-color: $warning-50 !important; }
+.bg-warning-25 { background-color: $warning-25 !important; }
+.bg-warning-10 { background-color: $warning-10 !important; }
+.bg-danger-75 { background-color: $danger-75 !important; }
+.bg-danger-50 { background-color: $danger-50 !important; }
+.bg-danger-25 { background-color: $danger-25 !important; }
+.bg-danger-10 { background-color: $danger-10 !important; }
+.bg-gray-100 { background-color: $gray-100 !important; }
+.bg-gray-200 { background-color: $gray-200 !important; }
+.bg-gray-300 { background-color: $gray-300 !important; }
+.bg-gray-400 { background-color: $gray-400 !important; }
+.bg-gray-500 { background-color: $gray-500 !important; }
+.bg-gray-600 { background-color: $gray-600 !important; }
+.bg-gray-700 { background-color: $gray-700 !important; }
+.bg-gray-800 { background-color: $gray-800 !important; }
+.bg-gray-900 { background-color: $gray-900 !important; }
+.border-gray-100 { border-color: $gray-100 !important; }
+.border-gray-200 { border-color: $gray-200 !important; }
+.border-gray-300 { border-color: $gray-300 !important; }
+.border-gray-400 { border-color: $gray-400 !important; }
+.border-gray-500 { border-color: $gray-500 !important; }
+.border-gray-600 { border-color: $gray-600 !important; }
+.border-gray-700 { border-color: $gray-700 !important; }
+.border-gray-800 { border-color: $gray-800 !important; }
+.border-gray-900 { border-color: $gray-900 !important; }
+.text-primary-75 { color: $primary-75; }
+.text-primary-50 { color: $primary-50; }
+.text-primary-25 { color: $primary-25; }
+.text-primary-10 { color: $primary-10; }
+.text-secondary-75 { color: $secondary-75; }
+.text-secondary-50 { color: $secondary-50; }
+.text-secondary-25 { color: $secondary-25; }
+.text-secondary-10 { color: $secondary-10; }
+.text-success-75 { color: $success-75; }
+.text-success-50 { color: $success-50; }
+.text-success-25 { color: $success-25; }
+.text-success-10 { color: $success-10; }
+.text-info-75 { color: $info-75; }
+.text-info-50 { color: $info-50; }
+.text-info-25 { color: $info-25; }
+.text-info-10 { color: $info-10; }
+.text-warning-75 { color: $warning-75; }
+.text-warning-50 { color: $warning-50; }
+.text-warning-25 { color: $warning-25; }
+.text-warning-10 { color: $warning-10; }
+.text-danger-75 { color: $danger-75; }
+.text-danger-50 { color: $danger-50; }
+.text-danger-25 { color: $danger-25; }
+.text-danger-10 { color: $danger-10; }
+.text-gray-100 { color: $gray-100; }
+.text-gray-200 { color: $gray-200; }
+.text-gray-300 { color: $gray-300; }
+.text-gray-400 { color: $gray-400; }
+.text-gray-500 { color: $gray-500; }
+.text-gray-600 { color: $gray-600; }
+.text-gray-700 { color: $gray-700; }
+.text-gray-800 { color: $gray-800; }
+.text-gray-900 { color: $gray-900; }
+
+/* Extend Margins */ 
+.m-6 { margin: 4.5rem }
+.mt-6 { margin-top: 4.5rem }
+.mb-6 { margin-bottom: 4.5rem }
+.ms-6 { margin-left: 4.5rem }
+.me-6 { margin-right: 4.5rem }
+.m-7 { margin: 6rem }
+.mt-7 { margin-top: 6rem }
+.mb-7 { margin-bottom: 6rem }
+.ms-7 { margin-left: 6rem }
+.me-7 { margin-right: 6rem }
+.m-8 { margin: 7.5rem }
+.mt-8 { margin-top: 7.5rem }
+.mb-8 { margin-bottom: 7.5rem }
+.ms-8 { margin-left: 7.5rem }
+.me-8 { margin-right: 7.5rem }
+.m-n6 { margin: -4.5rem !important; }
+.m-n7 { margin: -6rem !important; }
+.m-n8 { margin: -7.5rem !important; }
+.mx-n6 {
+  margin-right: -4.5rem !important;
+  margin-left: -4.5rem !important;
+}
+.mx-n7 {
+  margin-right: -6rem !important;
+  margin-left: -6rem !important;
+}
+.mx-n8 {
+  margin-right: -7.5rem !important;
+  margin-left: -7.5rem !important;
+}
+.my-n6 {
+  margin-top: -4.5rem !important;
+  margin-bottom: -4.5rem !important;
+}
+.my-n7 {
+  margin-top: -6rem !important;
+  margin-bottom: -6rem !important;
+}
+.my-n8 {
+  margin-top: -7.5rem !important;
+  margin-bottom: -7.5rem !important;
+}
+
+/* Button XS */
+.btn-xs {
+  --bs-btn-padding-y: 0.25rem;
+  --bs-btn-padding-x: 0.5rem;
+  --bs-btn-font-size: 0.7rem;
+  --bs-btn-border-radius: 0.25rem;
+}
+
+.breadcrumb {
+  margin-bottom: 0;
+}
+
+.border-thick {
+  border-width: .75em !important;
+}
+.border-dashed {
+  border-style: dashed !important;
+}
+
+.dropdown.show {
+  z-index: 1050;
+}
+
+// Input Validation
+input[type="text"], input[type="email"], input[type="password"] {
+  // When input is 1. NOT empty, 2. NOT in focus, 3. NOT valid
+  &:invalid:not(:focus):not(:placeholder-shown) {
+    border-bottom: 1px solid $danger;
+  }
+  &:required {
+    border-bottom: 1px solid $primary;
+  }
+}

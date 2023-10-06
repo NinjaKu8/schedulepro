@@ -1,0 +1,2 @@
+
+export { ScriptSceneEditorTag } from './ScriptSceneEditorTag'

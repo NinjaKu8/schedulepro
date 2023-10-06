@@ -1,0 +1,2 @@
+
+export { ManageDesignsPalettesMenuBar } from './ManageDesignsPalettesMenuBar'

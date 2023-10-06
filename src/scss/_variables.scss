@@ -1,0 +1,63 @@
+
+/* Toggle any bootstrap features */
+$enable-negative-margins: true;
+// $enable-cssgrid: true;
+// $enable-gradients: true;
+// $enable-shadows: true;
+
+/* Theme */
+$primary: #8378ff;
+$secondary: #9197B0;
+$success: #50CE65;
+$info: #5DBBFF;
+$warning: #FFB03A;
+$danger: #F03356;
+$dark: #221D58;
+$light: #F8F9FB;
+
+/* Grayscale, for testing */
+// $primary: grayscale($primary);
+// $secondary: grayscale($secondary);
+// $success: grayscale($success);
+// $info: grayscale($info);
+// $warning: grayscale($warning);
+// $danger: grayscale($danger);
+// $dark: grayscale($dark);
+// $light: grayscale($light);
+
+$selected: violet;
+
+$primary-75: adjust-lightness($primary, 0.75);
+$primary-50: adjust-lightness($primary, 0.5);
+$primary-25: adjust-lightness($primary, 0.25);
+$primary-10: adjust-lightness($primary, 0.1);
+$secondary-75: adjust-lightness($secondary, 0.75);
+$secondary-50: adjust-lightness($secondary, 0.5);
+$secondary-25: adjust-lightness($secondary, 0.25);
+$secondary-10: adjust-lightness($secondary, 0.1);
+$success-75: adjust-lightness($success, 0.75);
+$success-50: adjust-lightness($success, 0.5);
+$success-25: adjust-lightness($success, 0.25);
+$success-10: adjust-lightness($success, 0.1);
+$info-75: adjust-lightness($info, 0.75);
+$info-50: adjust-lightness($info, 0.5);
+$info-25: adjust-lightness($info, 0.25);
+$info-10: adjust-lightness($info, 0.1);
+$warning-75: adjust-lightness($warning, 0.75);
+$warning-50: adjust-lightness($warning, 0.5);
+$warning-25: adjust-lightness($warning, 0.25);
+$warning-10: adjust-lightness($warning, 0.1);
+$danger-75: adjust-lightness($danger, 0.75);
+$danger-50: adjust-lightness($danger, 0.5);
+$danger-25: adjust-lightness($danger, 0.25);
+$danger-10: adjust-lightness($danger, 0.1);
+
+$transparent: rgba(255,255,255,0); // necessary for linear-gradients on mobile
+
+$box-shadow: 0px 0px 10px rgba(145, 151, 176, 0.2);
+
+$border-radius: .75rem;
+$border-radius-sm: .5rem;
+$border-radius-lg: 1.5rem;
+
+$gradient-animation-duration: 30s;

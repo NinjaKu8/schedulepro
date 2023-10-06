@@ -1,0 +1,2 @@
+
+export { ManagerTabs } from './ManagerTabs'

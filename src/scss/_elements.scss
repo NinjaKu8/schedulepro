@@ -1,0 +1,24 @@
+
+/* Elements & Categories */
+.category {
+  &:hover {
+    background-color: rgba(var(--bs-primary-rgb), .75) !important;
+    transition: background-color .5s ease;
+  }
+}
+.element {
+  &:hover {
+    background-color: rgba(var(--bs-primary-rgb), .75) !important;
+    transition: background-color .5s ease;
+    .element-remove-icon {
+      color: $black;
+    }
+  }
+  .element-remove-icon {
+    color: $secondary;
+    font-size: 1.2em;
+    &:hover {
+      color: $danger;
+    }
+  }
+}

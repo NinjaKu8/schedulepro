@@ -1,0 +1,100 @@
+
+/* Dood */
+.dood {
+  font-size: .85em;
+  user-select: none;
+  &__count {
+    & .dood__row__cell {
+      background-color: $gray-200;
+
+      &--wide {
+        text-align: right !important;
+      }
+    }
+  }
+  &__row {
+    &:hover {
+      .dood__row__cell {
+        background-color: $primary-75;
+      }
+      .dood__row__cell--day-off {
+        background-color: $primary-75;
+      }
+    }
+    &__cell {
+      @include dood__row__cell;
+
+      &--wide {
+        padding-left: .5em;
+        padding-right: .5em;
+        width: 20em;
+        z-index: 2;
+      }
+      &--day-off {
+        color: $gray-600;
+        background-color: $gray-100;
+      }
+
+      &--color {
+        .status-work {
+          transition: background-color .2s;
+          background-color: $primary-50;
+          clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0 100%);
+        }
+        .status-hold, .status-dayoff-active {
+          background-color: $primary-25;
+          clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0 100%);
+        }
+        .status-start {
+          clip-path: polygon(100% 0%, 100% 100%, 
+            24% 100%, 15% 96%, 10% 92%, 8% 89%, 4% 77%, 1.75% 66%, 1% 58%,
+            1% 50%, 
+            1% 42%, 1.75% 33%, 4% 23%, 8% 11%, 10% 8%, 15% 4%, 24% 0%);
+        }
+        .status-start.status-finish {
+          clip-path: polygon(25% 0%, 75% 0%, 
+            76% 0%, 85% 4%, 90% 8%, 92% 11%, 96% 23%, 98.25% 33%, 99% 42%, 
+            99% 50%, 
+            99% 58%, 98.25% 66%, 96% 77%, 92% 89%, 90% 92%, 85% 96%, 76% 100%, 
+            75% 100%, 25% 100%, 
+            24% 100%, 15% 96%, 10% 92%, 8% 89%, 4% 77%, 1.75% 66%, 1% 58%,
+            1% 50%, 
+            1% 42%, 1.75% 33%, 4% 23%, 8% 11%, 10% 8%, 15% 4%, 24% 0%
+            );
+        }
+        .status-finish {
+          clip-path: polygon(
+            76% 0%, 85% 4%, 90% 8%, 92% 11%, 96% 23%, 98.25% 33%, 99% 42%, 
+            99% 50%, 
+            99% 58%, 98.25% 66%, 96% 77%, 92% 89%, 90% 92%, 85% 96%, 76% 100%, 
+            0% 100%, 0% 0%
+            );
+        }
+        .status-drop {
+          background: linear-gradient(135deg, $primary-50 80%, $transparent 81%);
+        }
+        .status-pickup {
+          background: linear-gradient(135deg, $transparent 19%, $primary-50 20%);
+        }
+      }
+    }
+  }
+  &__header, &__header .dood__row__cell--wide, &__row:not(:hover) .dood__row__cell:not(.dood__row__cell--day-off) {
+    background-color: $white; // protect against transparent backgrounds during sticky scrolling
+  }
+  &__header {
+    &--column {
+      background-color: $white;
+      &:hover {
+        background-color: $primary-50 !important;
+      }
+      .dood__row__cell--wide {
+        text-align: right !important;
+        cursor: default !important;
+      }
+    }
+    &--selected, .dood__header--selected:hover {
+      background-color: $selected !important;
+    }
+  }
+}

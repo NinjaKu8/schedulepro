@@ -1,0 +1,2 @@
+
+export { ManageScriptNew } from './ManageScriptNew'

@@ -1,0 +1,2 @@
+
+export { DesignStripPreview } from './DesignStripPreview'

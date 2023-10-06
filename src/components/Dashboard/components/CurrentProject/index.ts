@@ -1,0 +1,2 @@
+
+export { CurrentProject } from './CurrentProject'

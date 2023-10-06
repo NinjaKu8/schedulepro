@@ -1,0 +1,2 @@
+
+export { OffcanvasManagePanes } from './OffcanvasManagePanes'

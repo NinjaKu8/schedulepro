@@ -1,0 +1,2 @@
+
+export { DesignStripMenuBar } from './DesignStripMenuBar'

@@ -1,0 +1,27 @@
+
+.landing-header {
+  &__image {
+    animation: image-drift $gradient-animation-duration ease infinite;
+  }
+  @keyframes image-drift {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-1em); }
+    100% { transform: translateY(0); }
+  }
+
+  &__gradient {
+    height: 24em;
+    @include media-breakpoint-up(md) {
+      height: 30em;
+    }
+    @include media-breakpoint-up(xl) {
+      height: 30em;
+    }
+  }
+}
+
+.initiatives {
+  .nav-link.active {
+    border-bottom: 2px solid $primary;
+  }
+}

@@ -1,0 +1,2 @@
+
+export { AvatarNameTitle } from './AvatarNameTitle'

@@ -1,0 +1,2 @@
+
+export { ManageDesignsStripsMenuBar } from './ManageDesignsStripsMenuBar'

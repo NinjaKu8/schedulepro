@@ -1,0 +1,496 @@
+/* THINK CREW STYLES */
+
+/* Helper Classes */
+.bg-selected { background-color: $selected !important; }
+
+.pointer {
+  cursor: pointer;
+}
+
+.text-shadow {
+  text-shadow: rgba(0, 0, 0, .15) 0.1em 0.1em 0.2em;
+}
+.text-hover-dark {
+  &:hover {
+    color: $dark;
+  }
+}
+.flex-1 {
+  flex: 1;
+}
+
+.bg-none {
+  background-color: transparent !important;
+}
+
+.text-center-until-md {
+  text-align: center;
+  @include media-breakpoint-up(md) {
+    text-align: inherit;
+  }
+}
+
+/* Dropdown remove arrow */
+.no-arrow {
+  .dropdown-toggle::after {
+    display: none;  // remove dropdown arrows on file-menus
+  }
+}
+
+.dropdown-split-as-text {
+  a {
+    font-size: .9em;
+  }
+}
+
+.scale {
+  transform: scale(1.05);
+}
+
+/* Extending Colors */
+.hover-highlight {
+  transition: background-color .2s ease-out;
+  &:hover {
+    background-color: $primary-10;
+  }
+}
+
+/* Offcanvas Sizes */
+.offcanvas-medium.offcanvas.offcanvas-end { /* sized offcanvas - medium (small is default, requires no addl css) */
+  width: 47em;
+  // transition: width .5s ease-in;
+  @media (min-width: 768px) {
+    main {
+      margin-left: 100%;
+    }
+  }
+}
+.offcanvas-large.offcanvas.offcanvas-end { /* sized offcanvas - large */
+  width: 60em;
+  @media (min-width: 768px) {
+    main {
+      margin-left: 100%;
+    }
+  }
+}
+.offcanvas-full.offcanvas.offcanvas-end { /* sized offcanvas - full screen */
+  width: 100%;
+  transition: width .5s ease-in;
+}
+
+/* File Menu Bar */
+.file-menu {
+  .dropend.submenu:hover {
+    background-color: var(--bs-dropdown-link-hover-bg);
+    cursor: pointer;
+  }
+
+  .dropdown-menu {
+    box-shadow: 7px 7px 15px 7px rgba(0,0,0,0.1);
+  }
+}
+
+/* Find Offcanvas */
+.find {
+  .btn-link {
+    text-decoration: none;
+
+    &.active {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+}
+
+.list-item {
+  &:hover {
+    background-color: $gray-200;
+  }
+}
+
+/* User Container Width */
+/* The below styles are a fix for an issue with the schedule panes. Schedule container won't resize properly on its own,
+so forcing its parent to resize manually with the below styles. There might be a good flex fix for this, but I can't find it.  */
+.user-container {
+  @include media-breakpoint-up(md) {
+    & > .is-wide {
+      max-width: calc(100% - 15.7em);
+      transition: max-width .5s;
+    }
+    & > .is-narrow {
+      max-width: calc(100% - 6em);
+    }
+  }
+}
+
+/* Sidebar */
+.sidebar-offcanvas {
+  &.offcanvas {
+    width: 17em;
+  }
+  .nav-link {
+    font-size: 1.3em;
+  }
+  .sidebar-dropdown {
+    .dropdown-toggle, button, .btn, .btn-primary {
+      background-color: transparent !important;
+      background-image: none;
+      border: none;
+      box-shadow: none;
+      &:link, &:visited, &:hover, &:active, &:focus {
+        background-image: none;
+        box-shadow: none;
+      }
+    }
+    & > a {
+      color: $gray-100 !important;
+    }
+  } 
+}
+.sidebar {
+  white-space: nowrap;
+  @include media-breakpoint-down(md) {
+    width: 0;
+    margin-left: 0 !important;
+
+    .navbar-toggler {
+      position: absolute;
+      top: .5em;
+      left: 1em;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    &.is-wide {
+      width: 14em;
+    }
+    &.is-narrow {
+      width: 4.1em;
+    }
+  }
+
+  .nav-link {
+    transition: width .5s;
+    font-size: 1em;
+    & div {
+      transition: opacity .5s;
+    }
+    &:hover {
+      background-color: rgba($white, 0.5);
+    }
+    &.wide {
+      width: 12em;
+    }
+    &.narrow {
+      width: 2.6em;
+    }
+    &.active {
+      background-color: $primary;
+    }
+  }
+}
+
+/* Top Navigation Bar */
+.navigation {
+  .breadcrumb {
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+    @include media-breakpoint-up(sm) {
+      display: flex;
+      padding-left: 5em;
+    }
+    @include media-breakpoint-up(md) {
+      display: flex;
+      padding-left: 1em;
+    }
+  }
+}
+
+.card-selectable {
+  .title-column {
+    min-width: 12em;
+    @include media-breakpoint-down(sm) {
+      min-width: auto;
+    }
+  }
+}
+
+/* Strip Simple */
+.strip-simple, .strip-simple-progress, .strip-simple-progress-detailed {
+  display: grid; 
+  align-items: center;
+}
+.strip-simple {
+  @include media-breakpoint-up(sm) {
+    grid-template-columns: 4em 4em 1fr;
+    &__sc { grid-column: 1; grid-row: 1 / span 2; }
+    &__pgs { grid-column: 2; grid-row: 1 / span 2; }
+    &__slugline { grid-column: 3; grid-row: 1; }
+    &__description { grid-column: 3; grid-row: 2; }
+
+    &-progress { // .strip-simple-progress
+      grid-template-columns: 4em 4em 1fr 5em 5em;
+      &__sc { grid-column: 1; grid-row: 1 / span 2; }
+      &__pgs { grid-column: 2; grid-row: 1 / span 2; }
+      &__slugline { grid-column: 3; grid-row: 1; }
+      &__description { grid-column: 3; grid-row: 2; }
+      &__status { grid-column: 4; grid-row: 1 / span 2; }
+      &__checkbox { grid-column: 5; grid-row: 1 / span 2; }
+
+      &-detailed { // .strip-simple-progress-detailed
+        grid-template-columns: 4em 4em 4em 1fr 5em 5em;
+        &__sc { grid-column: 1; grid-row: 1; }
+        &__pgs { grid-column: 2; grid-row: 1; }
+        &__duration { grid-column: 3; grid-row: 1; }
+        &__slugline { grid-column: 4; grid-row: 1; }
+        &__status { grid-column: 5; grid-row: 1; }
+        &__checkbox { grid-column: 6; grid-row: 1; }
+      }
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    grid-template-columns: repeat(2, 1fr);
+    padding: .5em 0;
+    &__sc { grid-column: 1; grid-row: 3; }
+    &__pgs { grid-column: 2; grid-row: 3; }
+    &__slugline { grid-column: 1 / span 2; grid-row: 1; padding: 0 1em; }
+    &__description { grid-column: 1 / span 2; grid-row: 2; padding: 0 1em; }
+
+    &-progress { // .strip-simple-progress
+      grid-template-columns: repeat(4, 1fr);
+      padding: .5em 0;
+      &__sc { grid-column: 1; grid-row: 3; }
+      &__pgs { grid-column: 2; grid-row: 3; }
+      &__slugline { grid-column: 1 / span 4; grid-row: 1; padding: 0 1em; }
+      &__description { grid-column: 1 / span 4; grid-row: 2; padding: 0 1em; }
+      &__status { grid-column: 3; grid-row: 3; }
+      &__checkbox { grid-column: 4; grid-row: 3; }
+
+      &-detailed { // .strip-simple-progress-detailed
+        grid-template-columns: repeat(5, 1fr);
+        padding: none;
+        &__sc { grid-column: 1; grid-row: 2; }
+        &__pgs { grid-column: 2; grid-row: 2; }
+        &__duration { grid-column: 3; grid-row: 2; }
+        &__slugline { 
+          grid-column: 1 / span 5; 
+          grid-row: 1; 
+          padding: 0 1em;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
+        &__status { grid-column: 4; grid-row: 2; }
+        &__checkbox { grid-column: 5; grid-row: 2; }
+      }
+    }
+  }
+}
+.thin-strip {
+  transition: height .25s ease-in-out;
+  &:hover {
+    height: inherit !important;
+  }
+  .strip-simple-detailed {
+    @include media-breakpoint-down(sm) {
+      &__slugline {  // remove slugline on thin strips when on mobile
+        display: none; 
+        padding: none; 
+      }
+    }
+  }
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  div {
+    flex-grow: 1;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    div {
+      width: 50%;
+    }
+  }
+}
+
+/* Weather Large cards */
+.weather-large {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  &__section {
+    flex: 1 1 0;
+  }
+  &__top {
+    width: 100%;
+    & > * {
+      width: 33%;
+    }
+  }
+  @supports (contain: inline-size) {
+    container: weather-large/inline-size;
+    &__name-narrow {
+      display: block;
+    }
+    &__name-wide {
+      display: none;
+    }
+    @container weather-large (min-width: 500px) {
+      &__body {
+        flex-direction: row
+      }
+      &__name-narrow {
+        display: none;
+      }
+      &__name-wide {
+        display: block;
+      }
+    }
+  }
+  @supports not (contain: inline-size) { // fallback for older browsers
+    @include media-breakpoint-up(xl) {
+      &__body {
+        flex-direction: row
+      }
+    }
+  }
+}
+
+/* Card Horizontal, with container-queries & fallback media queries */
+.card-horizontal {
+  &__description, &__creator {
+    display: none;
+  }
+  @supports (contain: inline-size) {
+    container: card-horizontal/inline-size;
+    @container card-horizontal (min-width: 570px) {
+      &__description {
+        display: block;
+      }
+    }
+    @container card-horizontal (min-width: 700px) {
+      &__creator {
+        display: flex;
+      }
+    }
+  }
+  @supports not (contain: inline-size) { // fallback for older browsers
+    @include media-breakpoint-up(lg) {
+      &__description {
+        display: block;
+      }
+      &__creator {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.list-input {
+  &__multi { // make the div appear like an input element
+    display: block;
+    padding: $input-padding-y-sm 2em $input-padding-y-sm $input-padding-x-sm;
+    font-size: $input-font-size-sm;
+    font-weight: $input-font-weight;
+    line-height: $input-line-height;
+    color: $input-color;
+    background-color: $input-bg;
+    background-clip: padding-box;
+    border: $input-border-width solid $input-border-color;
+    appearance: none;
+    border-radius: $input-border-radius;
+    transition: $input-transition;
+
+    &.focus {
+      color: $input-focus-color;
+      background-color: $input-focus-bg;
+      border-color: $input-focus-border-color;
+      outline: 0;
+      box-shadow: $input-focus-box-shadow;
+    }
+
+    &--item {
+      color: $gray-700;
+      background-color: $primary-25;
+      transition: background-color .25s;
+      &:hover {
+        background-color: $primary-50;
+      }
+    }
+    &--cancel {
+      color: $gray-600;
+      transition: background-color .25s;
+      &:hover {
+        color: $dark;
+      }
+    }
+
+    input {
+      border: none;
+      outline: none;
+      min-width: 4em;
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+  }
+}
+
+.calendar-day {
+  width: 14.28%;
+}
+
+/* React-Datepicker */
+.react-datepicker {
+  border: none;
+  border-radius: $border-radius;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+  &-wrapper {
+    width: 100%;
+  } 
+  &-popper {
+    z-index: 1030;
+  }
+  &-popper[data-placement^=bottom] &__triangle::before {
+    border-bottom: none;
+  }
+  &-popper[data-placement^=bottom] &__triangle::after {
+    border-bottom-color: rgba(var(--bs-primary-rgb), .5);
+  }
+  &__header, &__header:not(.react-datepicker__header--has-time-select) {
+    background-color: rgba(var(--bs-primary-rgb), .5);
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    border: none;
+  }
+  &__navigation-icon::before {
+    border-color: rgba(var(--bs-primary-rgb), .75);
+  }
+  &__navigation:hover *::before {
+    border-color: $primary;
+  }
+  &__day {
+    &--selected, &--in-range {
+      background-color: rgba(var(--bs-primary-rgb), .75);
+    }
+    &--in-selecting-range:not(.react-datepicker__day--in-range) {
+      background-color: rgba(var(--bs-primary-rgb), .25);
+      color: black;
+    }
+    &--selected:hover, &--in-selecting-range:hover, &--in-range:hover {
+      background-color: $primary;
+    }
+  }
+}
+

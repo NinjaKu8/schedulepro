@@ -1,0 +1,2 @@
+
+export { CardHorizontalFavorite } from './CardHorizontalFavorite'

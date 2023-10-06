@@ -1,0 +1,2 @@
+
+export { ButtonDelete } from './ButtonDelete'

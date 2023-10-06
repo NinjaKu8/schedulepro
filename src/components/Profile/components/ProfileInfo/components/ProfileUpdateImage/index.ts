@@ -1,0 +1,2 @@
+
+export { ProfileUpdateImage } from './ProfileUpdateImage'

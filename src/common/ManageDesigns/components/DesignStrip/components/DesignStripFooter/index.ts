@@ -1,0 +1,2 @@
+
+export { DesignStripFooter } from './DesignStripFooter'

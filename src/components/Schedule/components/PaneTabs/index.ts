@@ -1,0 +1,2 @@
+
+export { PaneTabs } from './PaneTabs'

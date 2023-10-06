@@ -1,0 +1,2 @@
+
+export { ModalDelete } from './ModalDelete'

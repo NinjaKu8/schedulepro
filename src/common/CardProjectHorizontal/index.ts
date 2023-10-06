@@ -1,0 +1,2 @@
+
+export { CardProjectHorizontal } from './CardProjectHorizontal'

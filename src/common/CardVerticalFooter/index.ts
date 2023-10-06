@@ -1,0 +1,2 @@
+
+export { CardVerticalFooter } from './CardVerticalFooter'

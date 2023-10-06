@@ -1,0 +1,2 @@
+
+export { IconProject } from './IconProject'

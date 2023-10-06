@@ -1,0 +1,2 @@
+
+export { CardVerticalDescription } from './CardVerticalDescription'

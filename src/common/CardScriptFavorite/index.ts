@@ -1,0 +1,2 @@
+
+export { CardScriptFavorite } from './CardScriptFavorite'

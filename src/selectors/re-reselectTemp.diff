@@ -1,0 +1,26 @@
+// userSelectors.ts
+import { createSelector } from 'reselect';
+import createCachedSelector from 're-reselect';
+
+const getUsers = (state: RootState) => state.users; // This assumes you have a 'users' field in your state
+
+const getUserById = createCachedSelector(
+  getUsers,
+  (state: RootState, userId: string) => userId, // The second argument to our selector is the user's ID
+  (users, userId) => users[userId]?.avatarURI
+)((state, userId) => userId); // Cache key generator - using userId as the key
+
+
+// UserProfile.tsx
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { getUserById } from './userSelectors';
+
+const UserProfile: React.FC<{ userId: string }> = ({ userId }) => {
+    const userAvatarURI = useSelector(state => getUserById(state, userId));
+    return (
+        <div>
+            <img src={userAvatarURI || undefined} alt="User Avatar" />
+        </div>
+    );
+}

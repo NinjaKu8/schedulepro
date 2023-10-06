@@ -1,0 +1,2 @@
+
+export { ProfilePassword } from './ProfilePassword'

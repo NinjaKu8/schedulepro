@@ -1,0 +1,2 @@
+
+export { ProfileUpdatePassword } from './ProfileUpdatePassword'

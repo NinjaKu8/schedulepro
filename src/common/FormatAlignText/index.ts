@@ -1,0 +1,2 @@
+
+export { FormatAlignText } from './FormatAlignText'
